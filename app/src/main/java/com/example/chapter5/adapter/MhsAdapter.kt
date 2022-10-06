@@ -11,6 +11,8 @@ import com.example.chapter5.databinding.ItemBinding
 import com.example.chapter5.model.ResponseDataMhsItem
 
 class MhsAdapter(var listData : List<ResponseDataMhsItem>): RecyclerView.Adapter<MhsAdapter.ViewHolder>() {
+    var onDeleteClick : ((ResponseDataMhsItem)-> Unit)? = null
+
     class ViewHolder(var binding : ItemBinding): RecyclerView.ViewHolder(binding.root) {
 
     }
@@ -26,7 +28,7 @@ class MhsAdapter(var listData : List<ResponseDataMhsItem>): RecyclerView.Adapter
         holder.binding.txtJk.text =     ("Jenis Kelamin : "+listData[position].jk)
         holder.binding.txtAlamat.text = ("Alamat              : "+listData[position].alamat)
 
-        Glide.with(holder.itemView).load(listData[position].foto).into(holder.binding.imgMhs)
+        Glide.with(holder.itemView).load(listData[position].foto).circleCrop().into(holder.binding.imgMhs)
 
         holder.binding.item.setOnClickListener {
             var detail = Intent(it.context,DetailActivity::class.java)
@@ -39,6 +41,11 @@ class MhsAdapter(var listData : List<ResponseDataMhsItem>): RecyclerView.Adapter
             edit.putExtra("id",listData[position].id)
             it.context.startActivity(edit)
         }
+
+        holder.binding.imgDelete.setOnClickListener {
+            onDeleteClick?.invoke(listData[position])
+        }
+
     }
 
     override fun getItemCount(): Int {

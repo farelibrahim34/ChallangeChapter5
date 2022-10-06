@@ -16,12 +16,15 @@ class ViewModelDataMhs : ViewModel() {
     lateinit var ldMhsById : MutableLiveData<ResponseDataMhsItem?>
     lateinit var postLdDataMhs : MutableLiveData<ResponseDataMhs?>
     lateinit var editLdDataMhs : MutableLiveData<ResponseDataMhsItem?>
+    lateinit var deleteLdDataMhs : MutableLiveData<ResponseDataMhsItem?>
 
     init {
         liveDataMhs = MutableLiveData()
         ldMhsById = MutableLiveData()
         postLdDataMhs = MutableLiveData()
         editLdDataMhs = MutableLiveData()
+        deleteLdDataMhs = MutableLiveData()
+
     }
 //    null
     fun getDataMhs(): MutableLiveData<List<ResponseDataMhsItem>?> {
@@ -35,6 +38,30 @@ class ViewModelDataMhs : ViewModel() {
     }
     fun editDataMhs(): MutableLiveData<ResponseDataMhsItem?> {
         return editLdDataMhs
+    }
+    fun getLdDelDataMhs(): MutableLiveData<ResponseDataMhsItem?>{
+        return deleteLdDataMhs
+    }
+
+    fun callDeleteData(id : Int){
+        APIMahasiswa.instance.deleteDataMhs(id)
+            .enqueue(object : Callback<ResponseDataMhsItem>{
+                override fun onResponse(
+                    call: Call<ResponseDataMhsItem>,
+                    response: Response<ResponseDataMhsItem>
+                ) {
+                    if (response.isSuccessful){
+                        deleteLdDataMhs.postValue(response.body())
+                    }else{
+                        deleteLdDataMhs.postValue(null)
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseDataMhsItem>, t: Throwable) {
+                    deleteLdDataMhs.postValue(null)
+                }
+
+            })
     }
 
     fun editApiDataMhs(id: Int,nama : String,nim : String,alamat : String,foto : String,jk : String){

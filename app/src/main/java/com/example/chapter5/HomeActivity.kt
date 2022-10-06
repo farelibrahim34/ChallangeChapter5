@@ -73,8 +73,24 @@ class HomeActivity : AppCompatActivity() {
                 binding.rvList.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
                 val adapter = MhsAdapter(it)
                 binding.rvList.adapter = adapter
+                adapter.onDeleteClick ={
+                    deleteDataMhs(it.id.toInt())
+                }
+                adapter.notifyDataSetChanged()
             }
         })
         viewModel.callApiDataMhs()
     }
+
+
+    fun deleteDataMhs(id : Int){
+        viewModel.callDeleteData(id)
+        viewModel.getLdDelDataMhs().observe(this,{
+            if (it != null){
+                dataMhs()
+                Toast.makeText(this,"Data Berhasil Dihapus",Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
 }

@@ -27,8 +27,8 @@ class RegisterActivity : AppCompatActivity() {
 
             var getEmail = binding.registEmail.text.toString()
             var getUser = binding.registUser.text.toString()
-            var getPw = binding.registPw.text.toString()
-            var getUpw = binding.registUlangPw.text.toString()
+            var getPw = binding.inputRegistPw.text.toString()
+            var getUpw = binding.inputRegistUpw.text.toString()
 
             var addDataUser = shared.edit()
             addDataUser.putString("email",getEmail)

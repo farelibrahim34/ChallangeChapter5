@@ -20,4 +20,7 @@ interface APIInterface {
     @POST("datamhs")
     fun addDataMhs(@Body request : DataMahasiswa): Call<ResponseDataMhs>
 
+    @DELETE("datamhs/{id}")
+    fun deleteDataMhs(@Path("id")id : Int): Call<ResponseDataMhsItem>
+
 }

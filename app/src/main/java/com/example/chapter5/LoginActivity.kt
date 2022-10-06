@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
             var getDataPw = shared.getString("password","")
 
             var email = binding.inputEmail.text.toString()
-            var pw = binding.inputPw.text.toString()
+            var pw = binding.inputLogPw.text.toString()
 
             if (email.isEmpty() || pw.isEmpty()){
                 Toast.makeText(this,"ISI PASSWORD DAN USERNAME ANDA", Toast.LENGTH_SHORT).show()

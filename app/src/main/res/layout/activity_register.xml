@@ -56,7 +56,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registUser" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         app:endIconMode="password_toggle"
         android:id="@+id/registPw"
         android:layout_width="match_parent"
@@ -71,10 +71,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registEmail" >
 
-    </EditText>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputRegistPw"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        app:endIconMode="password_toggle"
         android:id="@+id/registUlangPw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,7 +93,14 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registPw" />
+        app:layout_constraintTop_toBottomOf="@+id/registPw" >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputRegistUpw"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnDaftar"

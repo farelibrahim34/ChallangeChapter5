@@ -36,7 +36,7 @@ class DetailActivity : AppCompatActivity() {
             binding.detailAlamat.setText("Alamat : "+ it!!.alamat)
 //            Glide.with(holder.itemView).load(listData[position].foto).into(holder.binding.imgMhs)
             var url = it.foto
-            Glide.with(this).load(url).into(binding.imgDetail)
+            Glide.with(this).load(url).circleCrop().into(binding.imgDetail)
 
 
 
