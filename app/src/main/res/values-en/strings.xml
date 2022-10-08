@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Chapter5</string>
+    <string name="title_activity_coba">try</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">Welcome !</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">Login failed</string>
+    <string name="masukkan_email">Enter Your Email</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="don_t_have_an_account_yet_please_register_first">don\'t have an account yet? please register first</string>
+    <string name="login">login</string>
+    <string name="regist">Regist</string>
+    <string name="enter_password_confirmation">Enter password confirmation</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_username">Enter Username</string>
+</resources>
